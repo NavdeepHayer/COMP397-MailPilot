@@ -4,6 +4,9 @@
 /// <reference path="typings/soundjs/soundjs.d.ts" />
 /// <reference path="typings/preloadjs/preloadjs.d.ts" />
 
+/// <reference path="typings/stats/stats.d.ts" />
+
+
 /// <reference path="objects/gameobject.ts" />
 /// <reference path="objects/plane.ts" />
 /// <reference path="objects/island.ts" />
@@ -17,6 +20,8 @@
 var canvas;
 var stage: createjs.Stage;
 var assetLoader: createjs.LoadQueue;
+var game: createjs.Container;
+var stats: Stats = new Stats();
 
 
 // Game Objects 
@@ -53,6 +58,7 @@ function init() {
     stage.enableMouseOver(20); // Enable mouse events
     createjs.Ticker.setFPS(60); // 60 frames per second
     createjs.Ticker.addEventListener("tick", gameLoop);
+    setupStats();
 
     main();
 }
@@ -81,10 +87,21 @@ function checkCollision(collider: objects.GameObject) {
 }
 
 
+function setupStats() {
+    stats.setMode(0); 
+
+    // align top-left
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '650px';
+    stats.domElement.style.top = '440px';
+
+    document.body.appendChild(stats.domElement);
+}
 
 
 
 function gameLoop() {
+    stats.begin();
 
     ocean.update();
 
@@ -101,6 +118,8 @@ function gameLoop() {
     checkCollision(island);
 
     stage.update(); // Refreshes our stage
+
+    stats.end();
 }
 
 
@@ -110,25 +129,30 @@ function gameLoop() {
 // Our Game Kicks off in here
 function main() {
 
+    // Instantiate Game Container
+    game = new createjs.Container();
+
     //Ocean object
     ocean = new objects.Ocean();
-    stage.addChild(ocean);
+    game.addChild(ocean);
 
     //Island object
     island = new objects.Island();
-    stage.addChild(island);
+    game.addChild(island);
 
 
     //Plane object
     plane = new objects.Plane();
-    stage.addChild(plane);
+    game.addChild(plane);
 
     //Cloud object
     for (var cloud = 2; cloud >= 0; cloud--) {
         clouds[cloud] = new objects.Cloud();
-        stage.addChild(clouds[cloud]);
+        game.addChild(clouds[cloud]);
     }
 
+    // Add Game Container to Stage
+    stage.addChild(game);
 
 
     

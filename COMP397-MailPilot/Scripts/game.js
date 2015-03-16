@@ -5,21 +5,18 @@
 /// <reference path="typings/preloadjs/preloadjs.d.ts" />
 /// <reference path="typings/stats/stats.d.ts" />
 /// <reference path="objects/gameobject.ts" />
+/// <reference path="objects/scoreboard.ts" />
 /// <reference path="objects/plane.ts" />
 /// <reference path="objects/island.ts" />
 /// <reference path="objects/cloud.ts" />
 /// <reference path="objects/ocean.ts" />
+/// <reference path="states/gameplay.ts" />
 // Global game Variables
 var canvas;
 var stage;
 var assetLoader;
-var game;
 var stats = new Stats();
-// Game Objects 
-var plane;
-var island;
-var clouds = [];
-var ocean;
+var gamePlay;
 var manifest = [
     { id: "cloud", src: "assets/images/cloud.png" },
     { id: "island", src: "assets/images/island.png" },
@@ -44,26 +41,6 @@ function init() {
     setupStats();
     main();
 }
-// UTILITY METHODS
-// DISTANCE CHECKING METHOD
-function distance(p1, p2) {
-    return Math.floor(Math.sqrt(Math.pow((p2.x - p1.x), 2) + Math.pow((p2.y - p1.y), 2)));
-}
-// CHECK COLLISION METHOD
-function checkCollision(collider) {
-    var planePosition = new createjs.Point(plane.x, plane.y);
-    var cloudPosition = new createjs.Point(collider.x, collider.y);
-    var theDistance = distance(planePosition, cloudPosition);
-    if (theDistance < ((plane.height * 0.5) + (collider.height * 0.5))) {
-        if (collider.isColliding != true) {
-            createjs.Sound.play(collider.sound);
-        }
-        collider.isColliding = true;
-    }
-    else {
-        collider.isColliding = false;
-    }
-}
 function setupStats() {
     stats.setMode(0);
     // align top-left
@@ -74,35 +51,11 @@ function setupStats() {
 }
 function gameLoop() {
     stats.begin();
-    ocean.update();
-    island.update();
-    plane.update();
-    for (var cloud = 2; cloud >= 0; cloud--) {
-        clouds[cloud].update();
-        checkCollision(clouds[cloud]);
-    }
-    checkCollision(island);
-    stage.update(); // Refreshes our stage
+    gamePlay.update();
     stats.end();
 }
-// Our Game Kicks off in here
 function main() {
-    // Instantiate Game Container
-    game = new createjs.Container();
-    //Ocean object
-    ocean = new objects.Ocean();
-    game.addChild(ocean);
-    //Island object
-    island = new objects.Island();
-    game.addChild(island);
-    //Plane object
-    plane = new objects.Plane();
-    game.addChild(plane);
-    for (var cloud = 2; cloud >= 0; cloud--) {
-        clouds[cloud] = new objects.Cloud();
-        game.addChild(clouds[cloud]);
-    }
-    // Add Game Container to Stage
-    stage.addChild(game);
+    // Instantiate new Game State
+    gamePlay = new states.GamePlay();
 }
 //# sourceMappingURL=game.js.map

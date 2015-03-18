@@ -17,21 +17,21 @@ var objects;
         }
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
         Cloud.prototype.update = function () {
-            this.y += this._dy;
-            this.x += this._dx;
+            this.rotation += 5;
+            this.x -= this._dx;
             this._checkBounds();
         };
         // Reset position of island to the top
         Cloud.prototype.reset = function () {
-            this.y = -this.height;
-            this.x = Math.floor(Math.random() * 640);
+            this.y = Math.floor(Math.random() * 450);
+            this.x = 660;
             this._dy = Math.floor(Math.random() * 5) + 5;
-            this._dx = Math.floor(Math.random() * 4) - 2;
+            this._dx = Math.floor(Math.random() * 4) + 5;
         };
         // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++
         Cloud.prototype._checkBounds = function () {
             // check if island has left the bottom of the screen
-            if (this.y >= (480 + this.height)) {
+            if (this.x < (0)) {
                 this.reset();
             }
         };

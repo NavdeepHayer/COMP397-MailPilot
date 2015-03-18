@@ -14,6 +14,10 @@ var objects;
             game.addChild(this._scoreLabel);
         }
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++
+        ScoreBoard.prototype.gameSpeed = function () {
+            if (this.score == 1000) {
+            }
+        };
         ScoreBoard.prototype.update = function () {
             this._livesLabel.text = "Lives: " + this.lives;
             this._scoreLabel.text = "Score: " + this.score;

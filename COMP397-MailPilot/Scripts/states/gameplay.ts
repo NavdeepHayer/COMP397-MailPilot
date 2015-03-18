@@ -67,6 +67,7 @@ module states {
                     createjs.Sound.play(collider.sound);
                     if (collider.name == "cloud") {
                         this.scoreboard.lives--;
+                       
                     }
                     if (collider.name == "island") {
                         this.scoreboard.score += 100;

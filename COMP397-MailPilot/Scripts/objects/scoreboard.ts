@@ -20,12 +20,19 @@
             this._scoreLabel.x = 400;
             game.addChild(this._scoreLabel);
 
+
         }
 
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++
+        public gameSpeed(): void {
+            if (this.score == 1000) {
+
+            }
+        }
         public update(): void {
             this._livesLabel.text = "Lives: " + this.lives;
             this._scoreLabel.text = "Score: " + this.score;
         }
+
     }
 } 

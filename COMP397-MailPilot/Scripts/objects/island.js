@@ -13,18 +13,23 @@ var objects;
         function Island() {
             _super.call(this, "island");
             this.sound = "yay";
-            this._dy = 5;
             this.reset();
         }
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
         Island.prototype.update = function () {
             this.x -= this._dy;
+            this.rotation += this._rotation;
             this._checkBounds();
         };
         // Reset position of island to the top
         Island.prototype.reset = function () {
             this.y = Math.floor(Math.random() * 440);
             this.x = 640;
+            this._dy = Math.floor(Math.random() * 5) + 5;
+            this._rotation = Math.floor(Math.random() * 10) - 5;
+            if (this._rotation == 0) {
+                this._rotation = Math.floor(Math.random() * 10) - 5;
+            }
         };
         // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++
         Island.prototype._checkBounds = function () {

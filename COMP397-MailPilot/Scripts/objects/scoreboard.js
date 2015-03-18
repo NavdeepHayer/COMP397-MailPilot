@@ -7,20 +7,16 @@ var objects;
             this.score = 0;
             this.lives = 5;
             this.active = true;
-            this._livesLabel = new createjs.Text("Lives: ", "40px Consolas", "#ffff00");
+            this._livesLabel = new createjs.Text("Lives: ", "22px Consolas", "#ffff00");
             game.addChild(this._livesLabel);
-            this._scoreLabel = new createjs.Text("Score: ", "40px Consolas", "#ffff00");
+            this._scoreLabel = new createjs.Text("Astronaut Saved: ", "22px Consolas", "#ffff00");
             this._scoreLabel.x = 400;
             game.addChild(this._scoreLabel);
         }
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++
-        ScoreBoard.prototype.gameSpeed = function () {
-            if (this.score == 1000) {
-            }
-        };
         ScoreBoard.prototype.update = function () {
-            this._livesLabel.text = "Lives: " + this.lives;
-            this._scoreLabel.text = "Score: " + this.score;
+            this._livesLabel.text = "Lives:" + this.lives;
+            this._scoreLabel.text = "Astronaut Saved: " + this.score;
         };
         return ScoreBoard;
     })();

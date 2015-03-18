@@ -37,7 +37,7 @@ module states {
             this.game.addChild(this.plane);
 
             //Cloud object
-            for (var cloud = 2; cloud >= 0; cloud--) {
+            for (var cloud = 5; cloud >= 0; cloud--) {
                 this.clouds[cloud] = new objects.Cloud();
                 this.game.addChild(this.clouds[cloud]);
             }
@@ -70,7 +70,8 @@ module states {
                        
                     }
                     if (collider.name == "island") {
-                        this.scoreboard.score += 100;
+                        this.scoreboard.score += 1;
+                        this.island.reset();
                     }
                 }
                 collider.isColliding = true;
@@ -88,7 +89,7 @@ module states {
 
             this.plane.update();
 
-            for (var cloud = 2; cloud >= 0; cloud--) {
+            for (var cloud = 5; cloud >= 0; cloud--) {
                 this.clouds[cloud].update();
 
                 this.checkCollision(this.clouds[cloud]);

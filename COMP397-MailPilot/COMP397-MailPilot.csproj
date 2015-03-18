@@ -61,6 +61,7 @@
   <ItemGroup>
     <Content Include="assets\audio\engine.ogg" />
     <Content Include="assets\audio\Explosion2.wav" />
+    <Content Include="assets\audio\Final.mp4" />
     <Content Include="assets\audio\Shakestopper.mp3" />
     <Content Include="assets\audio\thunder.ogg" />
     <Content Include="assets\audio\yay.ogg" />

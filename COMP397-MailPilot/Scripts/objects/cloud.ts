@@ -11,8 +11,10 @@
 
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
         public update() {
-            this.rotation += 5;
+            this.rotation += this._rotation;
             this.x -= this._dx;
+            this.scaleX = this._scale;
+            this.scaleY = this._scale;
             this._checkBounds();
         }
 
@@ -23,6 +25,14 @@
             this.x = 660;
             this._dy = Math.floor(Math.random() * 5) + 5;
             this._dx = Math.floor(Math.random() * 4) + 5;
+            this._scale = Math.floor(Math.random() * 2) + 1;
+            this._rotation = Math.floor(Math.random() * 10) - 5;
+            if (this._rotation == 0) {
+                this._rotation = Math.floor(Math.random() * 10) - 5;
+            }
+            if (this._dx == 0) {
+                this._dx = Math.floor(Math.random() * 4) + 5;
+            }
         }
 
         // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++

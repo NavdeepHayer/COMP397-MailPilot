@@ -11,8 +11,8 @@ var objects;
         __extends(Island, _super);
         // CONSTRUCTOR
         function Island() {
-            _super.call(this, "island");
-            this.sound = "yay";
+            _super.call(this, "Astronaut");
+            this.sound = "PowerUp";
             this.reset();
         }
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++

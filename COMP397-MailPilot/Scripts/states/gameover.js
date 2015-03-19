@@ -16,6 +16,7 @@ var states;
             this.tryAgain = false;
             // Instantiate Game Container
             this.game = new createjs.Container();
+            createjs.Sound.play("MainMenu", { loop: -1 });
             //Ocean object
             this.ocean = new objects.Ocean();
             this.game.addChild(this.ocean);
@@ -32,7 +33,7 @@ var states;
             this.highScoreLabel = new objects.Label(320, 200, ("HIGH SCORE: " + highScore));
             this.game.addChild(this.highScoreLabel);
             //Try Again Button
-            this.tryAgainButton = new objects.Button(320, 280, "tryAgainButton");
+            this.tryAgainButton = new objects.Button(320, 400, "tryAgainButton");
             this.tryAgainButton.on("click", this.tryAgainClicked, this);
             this.game.addChild(this.tryAgainButton);
             // Add Game Container to Stage

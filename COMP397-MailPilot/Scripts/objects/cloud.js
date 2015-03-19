@@ -11,8 +11,8 @@ var objects;
         __extends(Cloud, _super);
         // CONSTRUCTOR
         function Cloud() {
-            _super.call(this, "cloud");
-            this.sound = "thunder";
+            _super.call(this, "Astroid");
+            this.sound = "Explosion";
             this.reset();
         }
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++

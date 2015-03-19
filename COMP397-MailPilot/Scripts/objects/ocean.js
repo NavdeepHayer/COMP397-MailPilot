@@ -11,7 +11,7 @@ var objects;
         __extends(Ocean, _super);
         // CONSTRUCTOR
         function Ocean() {
-            _super.call(this, assetLoader.getResult("ocean"));
+            _super.call(this, assetLoader.getResult("Background"));
             // PUBLIC INSTANCE VARIABLES
             this._dy = 5;
             this.reset();

@@ -52,34 +52,34 @@ module states {
 
 
         // DISTANCE CHECKING METHOD
-        public  distance(p1: createjs.Point, p2: createjs.Point): number {
-        return Math.floor(Math.sqrt(Math.pow((p2.x - p1.x), 2) + Math.pow((p2.y - p1.y), 2)));
+        public distance(p1: createjs.Point, p2: createjs.Point): number {
+            return Math.floor(Math.sqrt(Math.pow((p2.x - p1.x), 2) + Math.pow((p2.y - p1.y), 2)));
         } //Distance Method
 
         // CHECK COLLISION METHOD
         public checkCollision(collider: objects.GameObject) {
             if (this.scoreboard.active) {
                 var planePosition: createjs.Point = new createjs.Point(this.plane.x, this.plane.y);
-            var objectPosition: createjs.Point = new createjs.Point(collider.x, collider.y);
-            var theDistance = this.distance(planePosition, objectPosition);
-            if (theDistance < ((this.plane.height * 0.5) + (collider.height * 0.5))) {
-                if (collider.isColliding != true) {
-                    createjs.Sound.play(collider.sound);
-                    if (collider.name == "cloud") {
-                        this.scoreboard.lives--;
-                       
+                var objectPosition: createjs.Point = new createjs.Point(collider.x, collider.y);
+                var theDistance = this.distance(planePosition, objectPosition);
+                if (theDistance < ((this.plane.height * 0.5) + (collider.height * 0.5))) {
+                    if (collider.isColliding != true) {
+                        createjs.Sound.play(collider.sound);
+                        if (collider.name == "Astroid") {
+                            this.scoreboard.lives--;
+
+                        }
+                        if (collider.name == "Astronaut") {
+                            this.scoreboard.score += 1;
+                            this.island.reset();
+                        }
                     }
-                    if (collider.name == "island") {
-                        this.scoreboard.score += 1;
-                        this.island.reset();
-                    }
+                    collider.isColliding = true;
+                } else {
+                    collider.isColliding = false;
                 }
-                collider.isColliding = true;
-            } else {
-                collider.isColliding = false;
             }
-        }
-    } // checkCollision Method
+        } // checkCollision Method
 
         public update() {
 
@@ -114,10 +114,7 @@ module states {
             }
 
             stage.update(); // Refreshes our stage
+        }
+    }
 
-    } // Update Method
-
-    } // GamePlay Class
-
-
-} // States Module
+} 

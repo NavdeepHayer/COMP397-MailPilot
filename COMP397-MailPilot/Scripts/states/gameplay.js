@@ -44,10 +44,10 @@ var states;
                 if (theDistance < ((this.plane.height * 0.5) + (collider.height * 0.5))) {
                     if (collider.isColliding != true) {
                         createjs.Sound.play(collider.sound);
-                        if (collider.name == "cloud") {
+                        if (collider.name == "Astroid") {
                             this.scoreboard.lives--;
                         }
-                        if (collider.name == "island") {
+                        if (collider.name == "Astronaut") {
                             this.scoreboard.score += 1;
                             this.island.reset();
                         }
@@ -82,9 +82,9 @@ var states;
                 stateChanged = true;
             }
             stage.update(); // Refreshes our stage
-        }; // Update Method
+        };
         return GamePlay;
     })();
-    states.GamePlay = GamePlay; // GamePlay Class
-})(states || (states = {})); // States Module
+    states.GamePlay = GamePlay;
+})(states || (states = {}));
 //# sourceMappingURL=gameplay.js.map

@@ -26,6 +26,8 @@ module states {
             // Instantiate Game Container
             this.game = new createjs.Container();
 
+            createjs.Sound.play("MainMenu", { loop: -1 });
+
             //Ocean object
             this.ocean = new objects.Ocean();
             this.game.addChild(this.ocean);
@@ -38,7 +40,7 @@ module states {
             this.game.addChild(this.gameOverLabel);
 
             //Final Score Label
-            this.finalScoreLabel = new objects.Label(320, 120, ("FINAL SCORE: " + currentScore));
+            this.finalScoreLabel = new objects.Label(320, 100, ("FINAL SCORE: " + currentScore));
             this.game.addChild(this.finalScoreLabel);
 
             //High Score Label
@@ -46,7 +48,7 @@ module states {
             this.game.addChild(this.highScoreLabel);
 
             //Try Again Button
-            this.tryAgainButton = new objects.Button(320, 280, "tryAgainButton");
+            this.tryAgainButton = new objects.Button(320, 400, "tryAgainButton");
             this.tryAgainButton.on("click", this.tryAgainClicked, this);
 
             this.game.addChild(this.tryAgainButton);

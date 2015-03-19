@@ -62,7 +62,10 @@
     <Content Include="assets\audio\engine.ogg" />
     <Content Include="assets\audio\Explosion2.wav" />
     <Content Include="assets\audio\Final.mp4" />
+    <Content Include="assets\audio\gameover.wav" />
+    <Content Include="assets\audio\powerup.wav" />
     <Content Include="assets\audio\Shakestopper.mp3" />
+    <Content Include="assets\audio\space.mp4" />
     <Content Include="assets\audio\thunder.ogg" />
     <Content Include="assets\audio\yay.ogg" />
     <Content Include="assets\images\playButton.png" />
@@ -77,10 +80,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\images\1945.bmp" />
-    <Content Include="assets\images\cloud.png" />
-    <Content Include="assets\images\island.png" />
-    <Content Include="assets\images\ocean.gif" />
-    <Content Include="assets\images\plane.png" />
+    <Content Include="assets\images\Astroid.png" />
+    <Content Include="assets\images\Astronaut.png" />
+    <Content Include="assets\images\background.gif" />
+    <Content Include="assets\images\SpaceShip.png" />
     <Content Include="assets\images\sideplane.gif" />
     <Content Include="css\game.css" />
     <Content Include="index.html" />
@@ -104,8 +107,9 @@
     <TypeScriptCompile Include="Scripts\objects\island.ts" />
     <TypeScriptCompile Include="Scripts\objects\label.ts" />
     <TypeScriptCompile Include="Scripts\objects\ocean.ts" />
-    <TypeScriptCompile Include="Scripts\objects\plane.ts" />
+    <TypeScriptCompile Include="Scripts\objects\Plane.ts" />
     <TypeScriptCompile Include="Scripts\objects\scoreboard.ts" />
+    <TypeScriptCompile Include="Scripts\objects\SpawnManager.ts" />
     <TypeScriptCompile Include="Scripts\states\gameover.ts" />
     <TypeScriptCompile Include="Scripts\states\gameplay.ts" />
     <TypeScriptCompile Include="Scripts\states\menu.ts" />

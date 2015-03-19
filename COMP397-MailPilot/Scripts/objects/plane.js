@@ -11,13 +11,13 @@ var objects;
         __extends(Plane, _super);
         // CONSTRUCTOR
         function Plane() {
-            _super.call(this, assetLoader.getResult("plane"));
+            _super.call(this, assetLoader.getResult("SpaceShip"));
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.x = 50;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
-            createjs.Sound.play("engine", { loop: -1 });
+            createjs.Sound.play("BackGround", { loop: -1 });
         }
         // PUBLIC METHODS
         Plane.prototype.update = function () {

@@ -6,7 +6,7 @@ module objects {
         public height: number;
         // CONSTRUCTOR
         constructor() {
-            super(assetLoader.getResult("plane"));
+            super(assetLoader.getResult("SpaceShip"));
 
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
@@ -14,7 +14,7 @@ module objects {
             this.x = 50;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
-            createjs.Sound.play("engine", {loop: -1});
+            createjs.Sound.play("BackGround", {loop: -1});
         }
 
         // PUBLIC METHODS

@@ -31,15 +31,17 @@ var gamePlay;
 var gameOver;
 var menu;
 var manifest = [
-    { id: "cloud", src: "assets/images/cloud.png" },
-    { id: "island", src: "assets/images/island.png" },
-    { id: "ocean", src: "assets/images/ocean.gif" },
-    { id: "plane", src: "assets/images/plane.png" },
+    { id: "Astroid", src: "assets/images/Astroid.png" },
+    { id: "Astronaut", src: "assets/images/Astronaut.png" },
+    { id: "Background", src: "assets/images/background.gif" },
+    { id: "SpaceShip", src: "assets/images/SpaceShip.png" },
     { id: "playButton", src: "assets/images/playButton.png" },
     { id: "tryAgainButton", src: "assets/images/tryAgainButton.png" },
-    { id: "engine", src: "assets/audio/Final.mp4" },
-    { id: "yay", src: "assets/audio/yay.ogg" },
-    { id: "thunder", src: "assets/audio/Explosion2.wav" }
+    { id: "BackGround", src: "assets/audio/Final.mp4" },
+    { id: "PowerUp", src: "assets/audio/powerup.wav" },
+    { id: "Explosion", src: "assets/audio/Explosion2.wav" },
+    { id: "gameover", src: "assets/audio/gameover.wav" },
+    { id: "MainMenu", src: "assets/audio/space.mp4" },
 ];
 function Preload() {
     assetLoader = new createjs.LoadQueue(); // create a new preloader

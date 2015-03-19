@@ -4,8 +4,8 @@
 
         // CONSTRUCTOR
         constructor() {
-            super("cloud");
-            this.sound = "thunder";
+            super("Astroid");
+            this.sound = "Explosion";
             this.reset();
         }
 

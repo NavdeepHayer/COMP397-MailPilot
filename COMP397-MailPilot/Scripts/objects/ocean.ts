@@ -6,7 +6,7 @@
 
         // CONSTRUCTOR
         constructor() {
-            super(assetLoader.getResult("ocean"));
+            super(assetLoader.getResult("Background"));
 
             this.reset();
         }

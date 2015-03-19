@@ -4,8 +4,8 @@
 
         // CONSTRUCTOR
         constructor() {
-            super("island");
-            this.sound = "yay";
+            super("Astronaut");
+            this.sound = "PowerUp";
 
             this.reset();
         }
